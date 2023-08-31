@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 68107 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 80880 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -25,6 +25,9 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 		} end)
 		Supremus:RegisterTranslation("zhCN", function() return {
 			["Supremus punches the ground in anger!"] = "苏普雷姆斯愤怒地击打着地面！"
+		} end)
+		Supremus:RegisterTranslation("ruRU", function() return {
+			["Supremus punches the ground in anger!"] = "Супремус в гневе ударяет по земле!"
 		} end)
 
 		local phaseTransition = Supremus:GetTranslation("Supremus punches the ground in anger!")

@@ -73,7 +73,7 @@ if GetLocale() == "zhCN" then
 	HIDE_FUBAR_PLUGIN_DESC = "隐藏在面板或小地图上的FuBar插件,暂定插件工作."
 	OTHER = "其他"
 	CLOSE = "关闭"
-	LOSE_DESC = "关闭目录."
+	CLOSE_DESC = "关闭目录."
 elseif GetLocale() == "zhTW" then
 	SHOW_FUBAR_ICON = "顯示圖示"
 	SHOW_FUBAR_ICON_DESC = "在面板上顯示插件圖示。"

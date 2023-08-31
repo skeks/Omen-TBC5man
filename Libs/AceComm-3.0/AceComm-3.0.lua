@@ -1,4 +1,4 @@
---[[ $Id: AceComm-3.0.lua 66660 2008-03-28 10:40:54Z nevcairiel $ ]]
+--[[ $Id: AceComm-3.0.lua 619 2008-03-28 10:40:54Z nevcairiel $ ]]
 
 --[[ AceComm-3.0
 

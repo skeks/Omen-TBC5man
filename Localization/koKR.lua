@@ -181,6 +181,11 @@ L["Your version of Omen/Threat is out of date and is not compatible with the new
 L["Whisper older clients informing them to update."] = "구식 버전 사용자에게 귓속말"
 L["You must be the group leader or a group assistant to do this."] = "이것을 사용하기 위해서는 파티장이나 공격대 승급자만 가능합니다."
 
+L["Pullout Bars"] = "Pullout 바"
+L["Options for pullout bars"] = "Pullout 바를 위한 옵션"
+L["Default texture"] = "기본 무늬"
+L["Texture used by new pullout bars"] = "새로운 Pullout 바에 사용될 무늬"
+
 BINDING_HEADER_OMEN = "Omen"
 BINDING_NAME_OMENTOGGLE = "Omen 토글"
 BINDING_NAME_OMENNEXTMODULE = "다음 모듈로 변경"

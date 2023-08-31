@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 73134 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 79785 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -11,12 +11,15 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 	ThreatLib:GetModule("NPCCore"):RegisterModule(VERAS_ID, function(Council)
 		function Council:Init()
 			self:RegisterCombatant(VERAS_ID, true)
-			-- Veras Darkshadow vanish
-			self.buffFades[41479] = function(self, npc_id)
-					if npc_id == VERAS_ID then
-						self:WipeRaidThreatOnMob(npc_id)
-					end
-				end
+
+			-- Notes on Veras Darkshadow vanish
+			-- He casts spell 41476, gains buff 41476, but loses buff 41479 about 30+ seconds later.
+			-- Losing 41479 is not consistent, and sometimes is not reported in the combat log.
+			self:RegisterSpellHandler("SPELL_CAST_SUCCESS", self.Vanish, 41476)
+		end
+
+		function Council:Vanish(srcGUID, dstGUID, spellId)
+			self:ScheduleTimer("WipeRaidThreatOnMob", 30, srcGUID)
 		end
 	end)
 end

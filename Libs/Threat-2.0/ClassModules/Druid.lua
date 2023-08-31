@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 78411 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 79729 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -129,6 +129,8 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 		for k, v in pairs(threatValues.mangle) do
 			self.AbilityHandlers[k] = self.Mangle
 		end
+
+		self.AbilityHandlers[33763] = self.LifebloomHOT
 		
 		self.itemSets = itemSets
 	end
@@ -224,5 +226,10 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 
 	function Druid:Cyclone(spellID, target)
 		self:AddTargetThreat(target, 180 * self:threatMods())
+	end
+
+	function Druid:LifebloomHOT(amount)
+		-- Lifebloom healing gets only half as much threat as other heals
+		return amount * 0.5
 	end
 end

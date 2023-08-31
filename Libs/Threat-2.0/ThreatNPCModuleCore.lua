@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 77508 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 78949 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then
 	_G.ThreatLib_MINOR_VERSION = MINOR_VERSION
@@ -189,7 +189,7 @@ local threatHalveSpellIDs = {
 
 local threeQuarterThreat = function(mob, target) ModifyThreat(mob, target, 0.75, 0) end
 local threatThreeQuarterSpellIDs = {
-	25778, -- Void Reaver, Fathom Lurker, Fathom Sporebat, Underbog Lord, Knock Away
+	-- 25778, -- Void Reaver, Fathom Lurker, Fathom Sporebat, Underbog Lord, Knock Away
 	19633, -- Onyxia, Knock Away
 	20566, -- Ragnaros, Wrath of Ragnaros
 	40486, -- Gurtogg Bloodboil, Eject (we ignore spellID 40597 which has a stun component rather than a knock back component)
@@ -198,6 +198,7 @@ local threatThreeQuarterSpellIDs = {
 local wipeThreat = function(mob, target) ModifyThreat(mob, target, 0, 0) end
 local threatWipeSpellIDs = {
 	26102, -- Ouro, Sand Blast
+	46288, -- Petrify, Chaos Gazer, Sunwell Plateau
 }
 
 function ThreatLibNPCModuleCore:OnInitialize()

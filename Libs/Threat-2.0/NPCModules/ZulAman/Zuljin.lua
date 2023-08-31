@@ -1,5 +1,5 @@
 ﻿local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 67266 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 80880 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -47,6 +47,13 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 			["Dere be no hidin' from da eagle!"] = "变成猎鹰，谁也别想逃出我的眼睛！",
 			["Let me introduce you to me new bruddas: fang and claw!"] = "现在来让你看看我的尖牙和利爪！",
 			["Ya don' have to look to da sky to see da dragonhawk!"] = "龙鹰，不用抬头就能看见！",
+		} end)
+		
+		Zuljin:RegisterTranslation("ruRU", function() return {
+			["Got me some new tricks... like me brudda bear...."] = "Выучил новый фокус… прямо как братишка-медведь…",
+			["Dere be no hidin' from da eagle!"] = "От орла нигде не скрыться!",
+			["Let me introduce you to me new bruddas: fang and claw!"] = "Позвольте представить моих двух братцев: клык и коготь!",
+			["Ya don' have to look to da sky to see da dragonhawk!"] = "Для того чтобы увидеть дракондора, в небо смотреть необязательно!",
 		} end)
 
 

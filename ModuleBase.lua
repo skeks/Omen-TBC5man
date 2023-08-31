@@ -1,4 +1,4 @@
-local MINOR_VERSION = tonumber(("$Revision: 74823 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 78989 $"):match("%d+"))
 if MINOR_VERSION > Omen.MINOR_VERSION then Omen.MINOR_VERSION = MINOR_VERSION end
 
 local base = {bars = {}, registeredGUIDs = {}}
@@ -216,7 +216,13 @@ function base:AddBar(bar, column)
 			columnProps.maxHeight = math_max(columnProps.maxHeight, columnProps.usedHeight)
 			maxHeight = math_max(columnProps.maxHeight, maxHeight)
 			Omen.Anchor:SetHeight(Omen.Title:GetHeight() + Omen.ModuleList:GetHeight() + maxHeight + 4)
-			self:MaybeAutoHide()
+			if bar.guid == "TITLE" then -- ignore title bar for purposes of auto hiding
+				columnProps.barCount = columnProps.barCount - 1
+				self:MaybeAutoHide()
+				columnProps.barCount = columnProps.barCount + 1
+			else
+				self:MaybeAutoHide()
+			end
 		end
 		bar.frame:Show()
 		columnProps.offset = self.spacing
@@ -267,6 +273,11 @@ function base:MaybeAutoHide()
 		end
 	end
 end
-	
+
+function base:MakePullout(bar)
+	-- override this to support pullout bars
+	Omen:Print("no pullout bars implemented for", self.name)
+	bar:GetParent():GetParent():StopMovingOrSizing()
+end
 
 Omen.ModuleBase = base

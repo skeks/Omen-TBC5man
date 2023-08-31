@@ -1,4 +1,4 @@
-local MINOR_VERSION = tonumber(("$Revision: 72202 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 78700 $"):match("%d+"))
 if MINOR_VERSION > Omen.MINOR_VERSION then Omen.MINOR_VERSION = MINOR_VERSION end
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Omen")
@@ -754,6 +754,21 @@ local options = {
 			name = L["Modules"],
 			desc = L["Options for Omen's various modules"],
 			args = {}
+		},
+		pullouts = {
+			type = "group",
+			name = L["Pullout Bars"],
+			desc = L["Options for pullout bars"],
+			args = {
+				defaultTexture = {
+					type = "select",
+					name = L["Default texture"],
+					desc = L["Texture used by new pullout bars"],
+					values = textures,
+					get = function(info) return GetLSMIndex("statusbar", Omen.Options["Skin.Pullout.Texture"]) end,
+					set = function(info, v) Omen.Options["Skin.Pullout.Texture"] =  Media:List("statusbar")[v] end
+				},
+			}
 		},
 		config = {
 			type = "execute",

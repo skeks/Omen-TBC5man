@@ -1,4 +1,4 @@
---[[ $Id: AceConsole-3.0.lua 74633 2008-05-21 08:20:50Z nevcairiel $ ]]
+--[[ $Id: AceConsole-3.0.lua 652 2008-05-21 08:20:50Z nevcairiel $ ]]
 local MAJOR,MINOR = "AceConsole-3.0", 6
 
 local AceConsole, oldminor = LibStub:NewLibrary(MAJOR, MINOR)

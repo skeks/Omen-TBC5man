@@ -9,4 +9,5 @@
 	<Script file="Localization\deDE.lua" />
 	<Script file="Localization\esES.lua" />
 	<Script file="AOE.lua" />
+	<Script file="AOE_PulloutBar.lua" />
 </Ui>

@@ -1,4 +1,4 @@
-local MINOR_VERSION = tonumber(("$Revision: 72204 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 78700 $"):match("%d+"))
 if MINOR_VERSION > Omen.MINOR_VERSION then Omen.MINOR_VERSION = MINOR_VERSION end
 
 local L = LibStub("AceLocale-3.0"):GetLocale("Omen")
@@ -214,6 +214,19 @@ local bgFrame = {
 	insets = {left = 4, right = 4, top = 4, bottom = 4}
 }
 
+function Omen:_SetFrameBackdrop(frame, optionPrefix)
+	frame:SetAlpha(self.Options["Skin.".. optionPrefix .. ".Opacity"] or self.Options["Skin.Frames.Opacity"])
+	
+	bgFrame.bgFile = Media:Fetch("background", self.Options["Skin." .. optionPrefix .. ".Background.Texture"] or self.Options["Skin.Frames.Background.Texture"])
+	bgFrame.edgeFile = Media:Fetch("border", self.Options["Skin." .. optionPrefix .. ".Border.Texture"] or self.Options["Skin.Frames.Border.Texture"])
+	frame:SetBackdrop(bgFrame)
+	
+	local c = self.Options["Skin." .. optionPrefix .. ".Background.Color"] or self.Options["Skin.Frames.Background.Color"]
+	frame:SetBackdropColor(c.r, c.g, c.b, c.a)
+	local c = self.Options["Skin." .. optionPrefix .. ".Border.Color"] or self.Options["Skin.Frames.Border.Color"]
+	frame:SetBackdropBorderColor(c.r, c.g, c.b, c.a)
+end
+
 function Omen:UpdateDisplay()
 	-- UpdateDisplay() is the SML registration callback. make sure we're set up before attempting to do anything
 	if not self.Anchor then return end
@@ -221,17 +234,7 @@ function Omen:UpdateDisplay()
 	self.Anchor:SetScale(Omen.Options["Skin.Scale"] / 100.0)
 	
 	for _, f in pairs(frames) do
-		local frame = self[f]
-		frame:SetAlpha(self.Options["Skin.".. f .. ".Opacity"] or self.Options["Skin.Frames.Opacity"])
-		
-		bgFrame.bgFile = Media:Fetch("background", self.Options["Skin." .. f .. ".Background.Texture"] or self.Options["Skin.Frames.Background.Texture"])
-		bgFrame.edgeFile = Media:Fetch("border", self.Options["Skin." .. f .. ".Border.Texture"] or self.Options["Skin.Frames.Border.Texture"])
-		frame:SetBackdrop(bgFrame)
-		
-		local c = self.Options["Skin." .. f .. ".Background.Color"] or self.Options["Skin.Frames.Background.Color"]
-		frame:SetBackdropColor(c.r, c.g, c.b, c.a)
-		local c = self.Options["Skin." .. f .. ".Border.Color"] or self.Options["Skin.Frames.Border.Color"]
-		frame:SetBackdropBorderColor(c.r, c.g, c.b, c.a)
+		self:_SetFrameBackdrop(self[f], f)
 	end
 
 	local clamp = self.Options["Skin.Clamp"]

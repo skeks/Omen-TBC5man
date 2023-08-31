@@ -37,7 +37,5 @@
 	<Script file="NPCModules\TempestKeep\TheEye\Solarian.lua" />
 	<Script file="NPCModules\ZulAman\Zuljin.lua" />
 
-	<Script file="NPCModules\TBC5Man\Princess.lua" />
-
 	<Script file="ThreatBoot.lua" />
 </Ui>

@@ -1,5 +1,5 @@
 ﻿local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 67266 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 80880 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -42,6 +42,12 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 			["Enough! I shall land and crush you myself!"] = "够了！我要落下来把你们打得粉碎！",
 			["Insects! Let me show you my strength up close!"] = "没用的虫子！让你们见识一下我的力量吧！",
 			["Miserable vermin. I shall exterminate you from the air!"] = "可怜的渣滓。我要腾空而起，让你尝尝毁灭的滋味！"
+		} end)
+		
+		Nightbane:RegisterTranslation("ruRU", function() return {
+			["Enough! I shall land and crush you myself!"] = "Довольно! Я сойду на землю и сам раздавлю тебя!",
+			["Insects! Let me show you my strength up close!"] = "Ничтожества! Я вам покажу мою силу поближе!",
+			["Miserable vermin. I shall exterminate you from the air!"] = "Жалкий гнус! Я изгоню тебя из воздуха!"
 		} end)
 
 		------------------------------------------------------------------------------------

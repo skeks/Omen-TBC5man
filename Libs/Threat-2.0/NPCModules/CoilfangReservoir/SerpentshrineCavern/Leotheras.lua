@@ -1,5 +1,5 @@
 ﻿local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 77728 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 80880 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -37,6 +37,11 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 		Leotheras:RegisterTranslation("zhCN", function() return {
 			["Be gone, trifling elf.  I am in control now!"] = "滚开吧，脆弱的精灵。现在我说了算！",
 			["No... no! What have you done? I am the master! Do you hear me? I am... aaggh! Can't... contain him."] = "不……不！你在干什么？我才是主宰！你听到没有？我……啊啊啊啊！控制……不住了。"
+		} end)
+		
+		Leotheras:RegisterTranslation("ruRU", function() return {
+			["Be gone, trifling elf.  I am in control now!"] = "Уйди, эльфийская мелюзга. Я теперь контролирую ситуацию!",
+			["No... no! What have you done? I am the master! Do you hear me? I am... aaggh! Can't... contain him."] = "Нет… нет! Что ты делаешь? Я господин! Ты меня слышишь? Я… а! Не могу… его сдержать."
 		} end)
 
 		local demonPhase = Leotheras:GetTranslation("Be gone, trifling elf.  I am in control now!")

@@ -1,4 +1,4 @@
-local MINOR_VERSION = tonumber(("$Revision: 72516 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 79002 $"):match("%d+"))
 local PlayerName = UnitName("player")
 local Threat = LibStub("Threat-2.0")
 local math_floor = math.floor
@@ -74,6 +74,19 @@ function Omen:PLAYER_LOGIN()
 	self:UpdateVisible()
 	self:UnregisterEvent("PLAYER_LOGIN")
 	if self.activeModule then self.activeModule:ClearBars() end
+	
+	-- Optional launcher support for LDB-1.1 if present, this code is placed here so
+	-- that it runs after all other addons have loaded since we don't embed LDB-1.1
+	local DataBroker = LibStub("LibDataBroker-1.1", true)
+	if DataBroker then
+		local launcher = DataBroker:NewDataObject("Omen", {
+		    type = "launcher",
+		    icon = "Interface\\AddOns\\Omen\\icon",
+		    OnClick = function(clickedframe, button)
+				if button == "RightButton" then Omen:ShowConfig() else Omen:Toggle() end
+			end,
+		})
+	end
 end
 
 function Omen:OnProfileChanged(db, name)

@@ -180,6 +180,11 @@ L["Your version of Omen/Threat is out of date and is not compatible with the new
 L["Whisper older clients informing them to update."] = "Шепнуть информирование о обновлении устаревшим клиентам"
 L["You must be the group leader or a group assistant to do this."] = "Вы должны быть лидером группы или ассистентом чтобы сделать это."
 
+L["Pullout Bars"] = "Полосы вытягивания"
+L["Options for pullout bars"] = "Опции полосы вытягивания"
+L["Default texture"] = "Стандартная текстура"
+L["Texture used by new pullout bars"] = "Текстура используемая полосами вытягивания"
+
 BINDING_HEADER_OMEN = "Omen"
 BINDING_NAME_OMENTOGGLE = "Переключатель Omena"
 BINDING_NAME_OMENNEXTMODULE = "Следующий модуль"

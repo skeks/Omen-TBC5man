@@ -179,6 +179,11 @@ L["Your version of Omen/Threat is out of date and is not compatible with the new
 L["Whisper older clients informing them to update."] = true
 L["You must be the group leader or a group assistant to do this."] = true
 
+L["Pullout Bars"] = true
+L["Options for pullout bars"] = true
+L["Default texture"] = true
+L["Texture used by new pullout bars"] = true
+
 BINDING_HEADER_OMEN = "Omen"
 BINDING_NAME_OMENTOGGLE = "Toggle Omen"
 BINDING_NAME_OMENNEXTMODULE = "Go to next module"

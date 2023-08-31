@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 70635 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 80880 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -32,6 +32,10 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 
 		Illidan:RegisterTranslation("zhCN", function() return {
 			["Behold the power... of the demon within!"] = "感受我体内的恶魔之力吧！"
+		} end)
+		
+		Illidan:RegisterTranslation("ruRU", function() return {
+			["Behold the power... of the demon within!"] = "Узрите мощь демона!"
 		} end)
 
 		local demon = Illidan:GetTranslation("Behold the power... of the demon within!")

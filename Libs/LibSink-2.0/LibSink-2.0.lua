@@ -1,6 +1,6 @@
 ﻿--[[
 Name: Sink-2.0
-Revision: $Rev: 75975 $
+Revision: $Rev: 52 $
 Author(s): Rabbit (rabbit.magtheridon@gmail.com), Antiarc (cheal@gmail.com)
 Website: http://rabbit.nihilum.eu
 Documentation: http://wiki.wowace.com/index.php/Sink-2.0
@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 -- Sink-2.0
 
 local SINK20 = "LibSink-2.0"
-local SINK20_MINOR = string.match("$Revision: 75975 $", "[0-9]+")
+local SINK20_MINOR = string.match("$Revision: 52 $", "[0-9]+")
 
 local sink = LibStub:NewLibrary(SINK20, SINK20_MINOR)
 if not sink then return end
@@ -184,6 +184,28 @@ elseif l == "zhTW" then
 	L_STICKY_DESC = "設定使用固定訊息。\n\n只有 Blizzard 浮動戰鬥文字，Parrot，SCT 及 MikSBT 有支援。"
 	L_NONE = "隱藏"
 	L_NONE_DESC = "隱藏所有插件輸出。"
+elseif l == "ruRU" then
+	L_DEFAULT = "По умолчанию"
+	L_DEFAULT_DESC = "Маршрут вывода сообщений данного аддона через первое доступное устройство, предпочитая доступные аддоны прокрутки текста боя."
+	L_ROUTE = "Маршрут вывода сообщений данного аддона через %s."
+	L_SCT = "SCT"
+	L_MSBT = "MikSBT"
+	L_BIGWIGS = "BigWigs"
+	L_BCF = "BlinkCombatFeedback"
+	L_UIERROR = "Фрейм ошибок Blizzard"
+	L_CHAT = "Чат"
+	L_BLIZZARD = "Blizzard FCT"
+	L_RW = "Объявление рейду"
+	L_PARROT = "Parrot"
+	L_CHANNEL = "Канал"
+	L_OUTPUT = "Вывод"
+	L_OUTPUT_DESC = "Куда выводить сообщения данного аддона."
+	L_SCROLL = "Область прокрутки"
+	L_SCROLL_DESC = "Назначить область прокрутки куда должны выводиться сообщения.\n\nДоступно только для Parrotа, SCT или MikSBT."
+	L_STICKY = "Клейкий"
+	L_STICKY_DESC = "Сделать сообщения данного аддона клейкими.\n\nДоступно только для Blizzard FCT, Parrot, SCT или MikSBT."
+	L_NONE = "Нету"
+	L_NONE_DESC = "Скрыть все сообщения данного аддона."
 end
 
 local SML = LibStub("LibSharedMedia-3.0", true)

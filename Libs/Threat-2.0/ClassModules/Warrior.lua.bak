@@ -339,11 +339,11 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 	end
 		
 	function Warrior:Execute(amount)
-		return amount * 1.25
+		return amount * 1.25 -- * self.passiveThreatModifiers
 	end
 
 	function Warrior:MSBT(amt)
-		return amt * MSBTMod
+		return amt * MSBTMod -- * self.passiveThreatModifiers
 	end
 
 	function Warrior:Disarm(spellID)

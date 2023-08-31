@@ -1,5 +1,5 @@
 local MAJOR_VERSION = "Threat-2.0"
-local MINOR_VERSION = tonumber(("$Revision: 78353 $"):match("%d+"))
+local MINOR_VERSION = tonumber(("$Revision: 79729 $"):match("%d+"))
 
 if MINOR_VERSION > _G.ThreatLib_MINOR_VERSION then _G.ThreatLib_MINOR_VERSION = MINOR_VERSION end
 
@@ -208,6 +208,13 @@ local BuffModifiers = {
 		end
 	end,
 	
+	-- Not there : Custom naxx ring for Warlock and Priest (TBC5man)
+	[28762] = function(self, action)
+		if action == "exist" then
+			self:AddBuffThreatMultiplier(0.001)
+		end
+	end,	
+	
 	-- Greater Blessing of Salvation
 	[25895] = function(self, action)
 		if action == "exist" then
@@ -335,6 +342,8 @@ function prototype:OnInitialize()
 	-- Imp LOTP heals are 0 threat, and in the prototype as any class can proc them
 	self.ExemptGains = newHash()	
 	self.ExemptGains[34299] = true
+	-- Same for Lifebloom end heals
+	self.ExemptGains[33778] = true
 	
 	-- Used to modify all data from a particular school. Only applies to some classes.
 	self.schoolThreatMods = new()
@@ -1155,6 +1164,7 @@ end
 -- General threat
 function prototype:AddThreat(threat)
 	if threat == 0 then return end
+	if threat == nil then return end -- Fix for when the player sunders another player while being mind controlled due to target determining issues
 	threat = threat / ThreatLib:EncounterMobs()
 	for k, v in pairs(self.targetThreat) do
 		self:AddTargetThreat(k, threat)
