@@ -88,12 +88,11 @@ ThreatLib_funcs[#ThreatLib_funcs+1] = function()
 
 	function Paladin:ScanTalents()
 		-- Scan talents	
-		self.righteousFuryMod = 1.6 + (0.6 * irfRanks[select(5, GetTalentInfo(2, 7))+1])
+		-- self.righteousFuryMod = 1.6 + (0.6 * irfRanks[select(5, GetTalentInfo(2, 7))+1])
 		
 		--TBC5Man Fix
-		self.righteousFuryMod = self.righteousFuryMod * 1.15
-
-
+		self.righteousFuryMod = 1.9 + (0.9 * irfRanks[select(5, GetTalentInfo(2, 7))+1])
+		
 		-- Fanaticism
 		local rank = select(5, GetTalentInfo(3, 21))
 		fanaticismModifier = (0.06 * rank)
